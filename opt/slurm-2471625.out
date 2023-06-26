@@ -1,0 +1,12 @@
+Autoloading py-setuptools/58.2.0
+/apps/arch/2022r2/software/linux-rhel8-zen/gcc-8.5.0/python-3.8.12-bohr45d576273qfe7isfniyllfv4obuc/bin/python3: can't open file 'run_idr.py': [Errno 2] No such file or directory
+srun: error: gpu001: task 0: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=2471625.0
+Traceback (most recent call last):
+  File "run_style.py", line 30, in <module>
+    trainrunner = StyleTrainRunner(conf=opt.conf,
+  File "/scratch/fsvisser/Final_Code/opt/train_style.py", line 39, in __init__
+    timestamps = os.listdir(os.path.join('../', 'exps', self.expname))
+FileNotFoundError: [Errno 2] No such file or directory: '../exps/dtu_fixed_cameras_24'
+srun: error: gpu001: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=2471625.1
