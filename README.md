@@ -35,7 +35,46 @@ python run_style.py --conf DTU_style.conf --scan_id 24 --style vangogh_starry_ni
 ```
 ## Datasets
 
+[Dataset](https://www.dropbox.com/sh/5tam07ai8ch90pf/AADniBT3dmAexvm_J1oL__uoa) from IDR.
+
+We have also created a dataset of the TU Delft Architecture building, included in the repository.
 
 ## Preprocessing
 
-WIP
+To create your own dataset, camera information is required which can be calculated using COLMAP. As input the following is required
+
+```
+- <data_folder>
+    - images      # input images
+    - masks       # mask data of the input images
+```
+
+Run COLMAP using the following command-lines
+
+
+```
+colmap feature_extractor \
+    --database_path <data_folder>/database.db \
+    --image_path <data_folder>/image
+
+colmap exhaustive_matcher \
+    --database_path <data_folder>/database.db
+
+mkdir <data_folder>/sparse
+
+colmap mapper \
+    --database_path <data_folder>/database.db \
+    --image_path <data_folder>/image \
+    --output_path <data_folder>/sparse
+
+colmap model_converter \
+    --input_path <data_folder>/sparse/0 \
+    --output_path <data_folder>/sparse \
+    --output_type TXT
+```
+To create the required camera paremeters as well as normalized camera parameters (see IDR), run the following
+```
+python colmap2idr.py --dense_folder <data_folder> --max_d 256 --convert_format
+
+python3 preprocess_cameras.py --source_dir <data_folder>
+```
