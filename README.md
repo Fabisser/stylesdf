@@ -2,7 +2,7 @@
 
 ## [Paper](https://repository.tudelft.nl/islandora/object/uuid:7f8ef49b-7c9c-4281-bd93-b921d9b28d49/datastream/OBJ/download) | [Project Page](https://fabisser.github.io/pages/styleSDF/index.html)
 
-![Alt Text](./media/gogh.gif)
+![Alt Text](https://github.com/Fabisser/fabisser.github.io/blob/master/pages/styleSDF/resources/gogh.gif)
 
 ## Description
 
